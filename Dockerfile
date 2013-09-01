@@ -15,6 +15,6 @@ RUN npm install -g chateau
 
 # TODO: configure Chateau
 
-ENTRYPOINT ["./bin/chateau"]
+ENTRYPOINT ["chateau"]
 
 CMD ["-h"]
