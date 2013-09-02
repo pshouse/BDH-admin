@@ -14,7 +14,7 @@ RUN apt-get upgrade -y
 RUN npm install -g chateau
 
 # Configure Chateau
-RUN echo "exports.host = '172.17.0.1'; exports.port = 28015; exports.authKey = ''; exports.expressPort = 3000;exports.debug = true; exports.network = '127.0.0.1'  // Network the node app will run on" > /usr/lib/node_modules/chateau/config.js
+RUN echo "exports.host = '172.17.0.1'; exports.port = 28015; exports.authKey = ''; exports.expressPort = 3000;exports.debug = true; exports.network = '0.0.0.0'  // Network the node app will run on" > /usr/lib/node_modules/chateau/config.js
 
 EXPOSE 3000
 
