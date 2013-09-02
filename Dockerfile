@@ -1,8 +1,8 @@
 # BDH-admin 
 # Uses Chateau to administer the ReThinkDB behind members.browncoats.info
-# Based on solomon hykes node.js container
+# Based on toscanini node.js image: github.com/toscanini/docker-nodejs
 
-FROM shykes/nodejs
+FROM pshouse/nodejs-base
 
 MAINTAINER Patrick Shouse <shouse.patrick@gmail.com>
 
@@ -14,8 +14,8 @@ RUN apt-get upgrade -y
 RUN npm install -g chateau
 
 # Configure Chateau
-RUN echo "exports.host = '172.17.0.1'; exports.port = 49154; exports.authKey = ''; exports.expressPort = 3000;exports.debug = true; exports.network = '127.0.0.1'  // Network the node app will run on" > config.js
+RUN echo "exports.host = '172.17.0.1'; exports.port = 49154; exports.authKey = ''; exports.expressPort = 3000;exports.debug = true; exports.network = '127.0.0.1'  // Network the node app will run on" > /user/local/lib/node/config.js
 
-#ENTRYPOINT ["chateau"]
+ENTRYPOINT ["chateau"]
 
 CMD ["-h"]
